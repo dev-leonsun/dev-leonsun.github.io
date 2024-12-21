@@ -1,0 +1,1549 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Javase复习--chapter2 面向对象 | RandomName</title>
+
+<link rel="shortcut icon" href="https://blog.randomname.me/favicon.ico?v=1734772434014">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.randomname.me/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            RandomName
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1734772434014" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Javase复习--chapter2 面向对象
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-12-18 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <h1 id="javase复习p2-面向对象">Javase复习P2 面向对象</h1>
+<h2 id="1概述">1.概述</h2>
+<figure data-type="image" tabindex="1"><img src="https://images.debian13.ggff.net/2024/12/21/67668602c866d.png" alt="image-20241216201059088" loading="lazy"></figure>
+<h3 id="11面向对象三大特征">1.1面向对象三大特征</h3>
+<p>①封装（Encapsulation）</p>
+<p>②继承（Inheritance）</p>
+<p>多态（Polymorphism）</p>
+<h3 id="12类和对象">1.2类和对象</h3>
+<h4 id="1类">①类</h4>
+<p>①现实世界中，事物与事物之间具有共同特征，例如：刘德华和梁朝伟都有姓名、身份证号、身高等状态，都有吃、跑、跳等行为。将这些共同的状态和行为提取出来，形成了一个模板，称为类。</p>
+<p>②类实际上是人类大脑思考总结的一个模板，类是一个抽象的概念。</p>
+<p>③状态在程序中对应属性。属性通常用变量来表示。</p>
+<p>④行为在程序中对应方法。用方法来描述行为动作。</p>
+<p>⑤类 = 属性 + 方法。</p>
+<h4 id="2对象">②对象</h4>
+<p>①实际存在的个体。</p>
+<p>②对象又称为实例（instance）。</p>
+<p>③通过类这个模板可以实例化n个对象。（通过类可以创造多个对象）</p>
+<p>④例如通过“明星类”可以创造出“刘德华对象”和“梁朝伟对象”。</p>
+<p>⑤明星类中有一个属性姓名：String name;</p>
+<p>⑥“刘德华对象”和“梁朝伟对象”由于是通过明星类造出来的，所以这两个</p>
+<p>都有name属性，但是值是不同的。因此这种属性被称为实例变量。</p>
+<figure data-type="image" tabindex="2"><img src="https://images.debian13.ggff.net/2024/12/21/6766860b26d5d.png" alt="image-20241216201312220" loading="lazy"></figure>
+<h4 id="对象的内存分析">对象的内存分析</h4>
+<figure data-type="image" tabindex="3"><img src="https://images.debian13.ggff.net/2024/12/21/6766860dace9d.png" alt="image-20241216202150814" loading="lazy"></figure>
+<p>对象存在堆，class 存在元空间，方法压栈，执行内部代码，局部变量在栈帧，引用对象指向堆，静态变量存在堆，出栈。</p>
+<h4 id="类加载的过程">类加载的过程</h4>
+<figure data-type="image" tabindex="4"><img src="https://images.debian13.ggff.net/2024/12/21/6766861076227.png" alt="image-20241216203106128" loading="lazy"></figure>
+<pre><code>装载（loading）
+类加载器负责将所有系统类，平台类，应用类的class文件读入内存，并创建一个java.lang.Class对象
+连接(linking)
+验证（Verify）
+确保加载类的信息符合JVM规范。
+准备（Prepare）
+正式为静态变量在方法区中开辟存储空间并设置默认值，为静态常量开辟空间并赋值
+public static int k = 10; 此时：k会赋值0
+public static final int f = 10; 此时： f会赋值10
+解析（Resolve）
+将虚拟机常量池内的符号引用替换为直接引用（地址）的过程。
+初始化（initialization）
+静态变量赋值，静态代码块执行
+
+低版本的JDK中类加载器的名字：
+启动类加载器：负责加载rt.jar
+扩展类加载器：ext/*.jar
+系统类加载器：classpath
+
+</code></pre>
+<pre><code class="language-Java">package com.powernode.javase.oop01;
+/*
+1. 定义类的语法格式：
+    [修饰符列表] class 类名{
+        类体 = 属性 + 方法;
+
+        // 属性（实例变量），描述的是状态
+
+        // 方法，描述的是行为动作
+    }
+2. 为什么要定义类？
+    因为要通过类实例化对象。有了对象，让对象和对象之间协作起来形成系统。
+
+3. 一个类可以实例化多个java对象。（通过一个类可以造出多个java对象。）
+
+4. 实例变量是一个对象一份，比如创建3个学生对象，每个学生对象中应该都有name变量。
+
+5. 实例变量属于成员变量，成员变量如果没有手动赋值，系统会赋默认值
+    数据类型        默认值
+    ----------------------
+    byte            0
+    short           0
+    int             0
+    long            0L
+    float           0.0F
+    double          0.0
+    boolean         false
+    char            \u0000
+    引用数据类型      null
+ */
+public class Student {
+
+    // 属性：姓名，年龄，性别，他们都是实例变量
+
+    // 姓名
+    String name;
+
+    // 年龄
+    int age;
+
+    // 性别
+    boolean gender;
+}
+</code></pre>
+<pre><code class="language-Java">package com.powernode.javase.oop01;
+
+public class StudentTest01 {
+    public static void main(String[] args) {
+        // 局部变量
+        int i = 10;
+
+        // 通过学生类Student实例化学生对象（通过类创造对象）
+        // Student s1; 是什么？s1是变量名。Student是一种数据类型名。属于引用数据类型。
+        // s1也是局部变量。和i一样。
+        // s1变量中保存的是：堆内存中Student对象的内存地址。
+        // s1有一个特殊的称呼：引用
+        // 什么是引用？引用的本质上是一个变量，这个变量中保存了java对象的内存地址。
+        // 引用和对象要区分开。对象在JVM堆当中。引用是保存对象地址的变量。
+        Student s1 = new Student();
+
+        // 访问对象的属性（读变量的值）
+        // 访问实例变量的语法：引用.变量名
+        // 两种访问方式：第一种读取，第二种修改。
+        // 读取：引用.变量名 s1.name; s1.age; s1.gender;
+        // 修改：引用.变量名 = 值; s1.name = &quot;jack&quot;; s1.age = 20; s1.gender = true;
+        System.out.println(&quot;姓名：&quot; + s1.name); // null
+        System.out.println(&quot;年龄：&quot; + s1.age); // 0
+        System.out.println(&quot;性别：&quot; + (s1.gender ? &quot;男&quot; : &quot;女&quot;));
+
+        // 修改对象的属性（修改变量的值，给变量重新赋值）
+        s1.name = &quot;张三&quot;;
+        s1.age = 20;
+        s1.gender = true;
+
+        System.out.println(&quot;姓名：&quot; + s1.name); // 张三
+        System.out.println(&quot;年龄：&quot; + s1.age); // 20
+        System.out.println(&quot;性别：&quot; + (s1.gender ? &quot;男&quot; : &quot;女&quot;)); // 男
+
+        // 再创建一个新对象
+        Student s2 = new Student();
+
+        // 访问对象的属性
+        System.out.println(&quot;姓名=&quot; + s2.name); // null
+        System.out.println(&quot;年龄=&quot; + s2.age); // 0
+        System.out.println(&quot;性别=&quot; + (s2.gender ? &quot;男&quot; : &quot;女&quot;));
+
+        // 修改对象的属性
+        s2.name = &quot;李四&quot;;
+        s2.age = 20;
+        s2.gender = false;
+
+        System.out.println(&quot;姓名=&quot; + s2.name); // 李四
+        System.out.println(&quot;年龄=&quot; + s2.age); // 20
+        System.out.println(&quot;性别=&quot; + (s2.gender ? &quot;男&quot; : &quot;女&quot;)); // 女
+
+
+    }
+}
+</code></pre>
+<h3 id="封装">封装</h3>
+<p>面向对象三大特征之一：封装</p>
+<p>①现实世界中封装：</p>
+<p>液晶电视也是一种封装好的电视设备，它将电视所需的各项零部件封装在一个整体的外壳中，提供给用户一个简单而便利的使用接口，让用户可以轻松地切换频道、调节音量、等。液晶电视内部包含了很多复杂的技术，如显示屏、LED背光模块、电路板、扬声器等等，而这些内部结构对于大多数普通用户来说是不可见的，用户只需要通过遥控器就可以完成电视的各种设置和操作，这就是封装的好处。液晶电视的封装不仅提高了用户的便利程度和使用效率，而且还起到了保护设备内部部件的作用，防止灰尘、脏物等干扰。同时，液晶电视外壳材料的选择也能起到防火、防潮、防电等效果，为用户的生活带来更安全的保障。</p>
+<p>②什么是封装？</p>
+<p>封装是一种将数据和方法加以包装，使之成为一个独立的实体，并且把它与外部对象隔离开来的机制。具体来说，封装是将一个对象的所有“状态（属性）”以及“行为（方法）”统一封装到一个类中，从而隐藏了对象内部的具体实现细节，向外界提供了有限的访问接口，以实现对对象的保护和隔离。</p>
+<p>③封装的好处？</p>
+<p>封装通过限制外部对对象内部的直接访问和修改，保证了数据的安全性，并提高了代码的可维护性和可复用性。</p>
+<p>④在代码上如何实现封装？</p>
+<p>属性私有化，对外提供getter和setter方法。</p>
+<h3 id="构造方法">构造方法</h3>
+<p>构造方法Constructor(构造器)</p>
+<p>①构造方法有什么作用？</p>
+<p>1.构造方法的执行分为两个阶段：对象的创建和对象的初始化。这两个阶段不能颠倒，也不可分割。</p>
+<p>2.在Java中，当我们使用关键字new时，就会在内存中创建一个新的对象，虽然对象已经被创建出来了，但还没有被初始化。而初始化则是在执行构造方法体时进行的。</p>
+<p>②构造方法如何定义？</p>
+<p>[修饰符列表] 构造方法名(形参){}</p>
+<p>③构造方法如何调用？new 构造方法名(实参);</p>
+<p>④关于无参数构造方法：如果一个类没有显示的定义任何构造方法，系统会默认提供一个无参数构造方法，也被称为缺省构造器。一旦显示的定义了构造方法，则缺省构造器将不存在。为了方便对象的创建，建议将缺省构造器显示的定义出来。</p>
+<p>⑤构造方法支持重载机制。</p>
+<p>⑥关于构造代码块。对象的创建和初始化过程梳理：</p>
+<p>①new的时候在堆内存中开辟空间，给所有属性赋默认值</p>
+<p>②执行构造代码块进行初始化</p>
+<p>③执行构造方法体进行初始化</p>
+<p>构造方法执行结束，对象初始化完毕。</p>
+<h4 id="对象创建的过程">对象创建的过程</h4>
+<p>在类完成初始化后，开始执行方法，在栈帧中操作</p>
+<p>①new运算符会在JVM的堆内存中分配空间用来存储实例变量。new分配的空间就是Java对象。</p>
+<p>②在JVM中对象创建后会有对应的内存地址，将内存地址赋值给一个变量，这个变量被称为引用。</p>
+<p>③Java中的GC主要针对的是JVM的堆内存。</p>
+<p>④空指针异常是如何发生的？</p>
+<p>⑤方法调用时参数是如何传递的？将变量中保存的值复制一份传递过去。</p>
+<p>⑥初次认识this关键字：出现在实例方法中，代表当前对象。“this.”大部分情况下可以省略。</p>
+<p>this存储在实例方法栈帧的局部变量表的0号槽位上。</p>
+<h3 id="static关键字">static关键字</h3>
+<p>static关键字</p>
+<p>①static是一个关键字，翻译为：静态的。</p>
+<p>②static修饰的变量叫做静态变量。当所有对象的某个属性的值是相同的，建议将该属性定义为静态变量，来节省内存的开销。</p>
+<p>③静态变量在类加载时初始化，存储在堆中。！！！！</p>
+<p>④static修饰的方法叫做静态方法。</p>
+<p>⑤所有静态变量和静态方法，统一使用“类名.”调用。虽然可以使用“引用.”来调用，但实际运行时和对象无关，所以不建议这样写，因为这样写会给其他人造成疑惑。</p>
+<p>⑥使用“引用.”访问静态相关的，即使引用为null，也不会出现空指针异常。</p>
+<p>⑦静态方法中不能使用this关键字。因此无法直接访问实例变量和调用实例方法。</p>
+<p>⑧静态代码块在类加载时执行，一个类中可以编写多个静态代码块，遵循自上而下的顺序依次执行。</p>
+<p>⑨静态代码块代表了类加载时刻，如果你有代码需要在此时刻执行，可以将该代码放到静态代码块中。</p>
+<figure data-type="image" tabindex="5"><img src="https://images.debian13.ggff.net/2024/12/21/6766861708e21.png" alt="image-20241218143622981" loading="lazy"></figure>
+<h3 id="jvm的体系结构">jvm的体系结构</h3>
+<p>JVM对应了一套规范（Java虚拟机规范），它可以有不同的实现</p>
+<p>①JVM规范是一种抽象的概念，它可以有多种不同的实现。例如：</p>
+<p><strong>1.HotSpot：HotSpot 由 Oracle 公司开发，是目前最常用的虚拟机实现，也是默认的 Java 虚拟机，默认包含在 Oracle JDK 和 OpenJDK 中</strong> 这是常用的</p>
+<p>2.JRockit：JRockit 也是由 Oracle 公司开发。它是一款针对生产环境优化的 JVM 实现，能够提供高性能和可伸缩性</p>
+<p>3.IBM JDK：IBM JDK 是 IBM 公司开发的 Java 环境，采用了与 HotSpot 不同的 J9 VM，能够提供更小的内存占用和更迅速的启动时间</p>
+<p>4.Azul Zing：Azul Zing 是针对生产环境优化的虚拟机实现，能够提供高性能和实时处理能力，适合于高负载的企业应用和实时分析等场景</p>
+<p>5.OpenJ9：OpenJ9 是由 IBM 开发的优化的 Java 虚拟机实现，支持高度轻量级、低时延的 GC、优化的 JIT 编译器和用于健康度测试的可观察性仪表板</p>
+<p>②右图是从oracle官网上截取的Java虚拟机规范中的一部分。（大家也可以找一下oracle官方文档）</p>
+<p>③我们主要研究运行时数据区。运行时数据区包括6部分：</p>
+<p>1.The pc Register（程序计数器）</p>
+<p>2.Java Virtual Machine Stacks（Java虚拟机栈）</p>
+<p>3.Heap（堆）</p>
+<p>4.Method Area（方法区）</p>
+<p>5.Run-Time Constant Pool（运行时常量池）</p>
+<p>6.Native Method Stacks（本地方法栈）</p>
+<p>①The pc Register（程序计数器）：是一块较小的内存空间，此计数器记录的是正在执行的虚拟机字节码指令的地址；</p>
+<p>②Java Virtual Machine Stacks（Java虚拟机栈）：Java虚拟机栈用于存储栈帧。栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等信息。</p>
+<p>③Heap（堆）：是Java虚拟机所管理的最大的一块内存。堆内存用于存放Java对象实例以及数组。堆是垃圾收集器收集垃圾的主要区域。</p>
+<p>④Method Area（方法区）：用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>⑤Run-Time Constant Pool（运行时常量池）：是方法区的一部分，用于存放编译期生成的各种字面量与符号引用。</p>
+<p>⑥Native Method Stacks（本地方法栈）：在本地方法的执行过程中，会使用到本地方法栈。和 Java 虚拟机栈十分相似。</p>
+<figure data-type="image" tabindex="6"><img src="https://images.debian13.ggff.net/2024/12/21/676686199f809.png" alt="image-20241218143824259" loading="lazy"></figure>
+<h4 id="hotspotoracle-jdkopen-jdk内部使用的jvm就是hotspot-jdk8以后">HotSpot（Oracle JDK/Open JDK内部使用的JVM就是HotSpot） jdk8以后</h4>
+<figure data-type="image" tabindex="7"><img src="https://images.debian13.ggff.net/2024/12/21/6766861baec40.png" alt="image-20241218143936300" loading="lazy"></figure>
+<p>年轻代：刚new出来的对象放在这里。</p>
+<p>老年代：经过垃圾回收之后仍然存活的对象。</p>
+<p>符号引用：类全名，字段全名，方法全名等。</p>
+<p>方法区的实现转移到本地内存</p>
+<h3 id="继承">继承</h3>
+<p>①面向对象三大特征之一：继承</p>
+<p>②继承作用？</p>
+<p>l基本作用：代码复用</p>
+<p>l重要作用：有了继承，才有了方法覆盖和多态机制。</p>
+<p>③继承在java中如何实现？</p>
+<p>l[修饰符列表] class 类名 extends 父类名{}</p>
+<p>extends翻译为扩展。表示子类继承父类后，子类是对父类的扩展。</p>
+<p>④继承相关的术语：当B类继承A类时</p>
+<p>A类称为：父类、超类、基类、superclass</p>
+<p>B类称为：子类、派生类、subclass</p>
+<p>⑤Java只支持单继承，一个类只能直接继承一个类。</p>
+<p>⑥Java不支持多继承，但支持多重继承（多层继承）。</p>
+<p>⑦<strong>子类继承父类后，除私有的不支持继承、构造方法不支持继承。其它的全部会继承。</strong></p>
+<p>⑧一个类没有显示继承任何类时，默认继承java.lang.Object类。</p>
+<h3 id="override">override</h3>
+<p>①什么情况下考虑使用方法覆盖？</p>
+<p>1.当从父类中继承过来的方法无法满足当前子类的业务需求时。</p>
+<p>②发生方法覆盖的条件？</p>
+<p>1.具有继承关系的父子类之间</p>
+<p>2.相同的返回值类型，相同的方法名，相同的形式参数列表</p>
+<p>3.访问权限不能变低，可以变高。</p>
+<p>4.抛出异常不能变多，可以变少。</p>
+<p>5.返回值类型可以是父类方法返回值类型的子类。</p>
+<p>③方法覆盖的小细节：</p>
+<p>1.@Override注解标注的方法会在编译阶段检查该方法是否重写了父类的方法。</p>
+<p>2.私有方法不能继承，所以不能覆盖。</p>
+<p>3.构造方法不能继承，所以不能覆盖。</p>
+<p>4.静态方法不存在方法覆盖，方法覆盖针对的是实例方法。</p>
+<pre><code class="language-Java">class Parent {
+    public static void show() {
+        System.out.println(&quot;Parent show&quot;);
+    }
+}
+
+class Child extends Parent {
+//    public static void show() {
+//        System.out.println(&quot;Child show&quot;);
+//    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child p = new Child();
+        p.show();  // 输出 &quot;Parent show&quot;
+    }
+}
+</code></pre>
+<p>如果子类中没有重新写父类的静态方法，通过子类调用时自动调用父类的，因为在某个类中定义的静态方法，是属于这个类的，也可以说静态方法是一种伪继承</p>
+<p>方法覆盖说的实例方法，和实例变量无关。</p>
+<h3 id="多态学习">多态学习</h3>
+<figure data-type="image" tabindex="8"><img src="https://images.debian13.ggff.net/2024/12/21/6766862096b97.png" alt="image-20241218145048446" loading="lazy"></figure>
+<h4 id="1-向上转型和向下转型">① 向上转型和向下转型</h4>
+<p>在Java中，具有继承关系的父子类型之间可以进行类型转换。这种类型转换分为<strong>向上转型（upcasting）**和**向下转型（downcasting）</strong>。</p>
+<h5 id="1-向上转型upcasting">1. 向上转型（Upcasting）</h5>
+<ul>
+<li>
+<p><strong>定义</strong>：子类对象可以赋值给父类类型的引用，这种转换是<strong>隐式的</strong>，不需要使用强制类型转换符。</p>
+</li>
+<li>
+<p><strong>语法</strong>：</p>
+<pre><code>Parent parent = new Child();
+</code></pre>
+</li>
+<li>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>向上转型是安全的，因为子类对象本身就包含了父类的所有属性和方法。</li>
+<li>通过父类引用只能访问父类中定义的成员（包括字段和方法），无法访问子类特有的成员。</li>
+<li>编译器允许这种转换，因为它知道子类是父类的扩展。</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code>class Animal {
+    public void move() {
+        System.out.println(&quot;Animal is moving&quot;);
+    }
+}
+
+class Cat extends Animal {
+    public void meow() {
+        System.out.println(&quot;Cat is meowing&quot;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Cat();  // 向上转型
+        a.move();  // 调用的是Cat类的move()方法（多态）
+        // a.meow();  // 错误：编译时，a被看作Animal类型，没有meow()方法
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h5 id="2-向下转型downcasting">2. 向下转型（Downcasting）</h5>
+<ul>
+<li>
+<p><strong>定义</strong>：父类类型的引用可以转换为子类类型的引用，但这种转换是<strong>显式的</strong>，需要使用强制类型转换符。</p>
+</li>
+<li>
+<p><strong>语法</strong>：</p>
+<pre><code>Child child = (Child) parent;
+</code></pre>
+</li>
+<li>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>向下转型不是总是安全的，只有当父类引用实际指向的是子类对象时，才能成功转换。</li>
+<li>如果父类引用实际指向的不是子类对象，运行时会抛出<code>ClassCastException</code>异常。</li>
+<li>为了确保安全性，通常会在向下转型前使用<code>instanceof</code>关键字进行类型检查。</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code>class Animal {
+    public void move() {
+        System.out.println(&quot;Animal is moving&quot;);
+    }
+}
+
+class Cat extends Animal {
+    public void meow() {
+        System.out.println(&quot;Cat is meowing&quot;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Cat();  // 向上转型
+        if (a instanceof Cat) {  // 检查a是否是Cat类型
+            Cat c = (Cat) a;  // 向下转型
+            c.move();  // 调用的是Cat类的move()方法
+            c.meow();  // 调用Cat类特有的meow()方法
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h5 id="3-转型的前提条件">3. 转型的前提条件</h5>
+<p>无论是向上转型还是向下转型，<strong>前提条件</strong>是两种类型之间必须存在继承关系。否则，编译器将无法编译通过。</p>
+<h4 id="2-多态">② 多态</h4>
+<h5 id="1-定义">1. 定义</h5>
+<p><strong>多态</strong>指的是一个父类类型的引用可以指向多个不同子类的对象，并且在运行时根据实际对象的类型调用相应的方法。这是Java中实现<strong>动态绑定</strong>的关键机制。</p>
+<ul>
+<li>
+<p><strong>语法</strong>：</p>
+<pre><code>Parent reference = new Child();
+reference.method();
+</code></pre>
+</li>
+<li>
+<p><strong>解释</strong>：</p>
+<ul>
+<li><code>Parent reference</code> 是父类类型的引用。</li>
+<li><code>new Child()</code> 创建了一个子类对象。</li>
+<li><code>reference.method()</code> 调用的是子类对象的实际方法，而不是父类中的方法。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-编译阶段与运行阶段">2. 编译阶段与运行阶段</h5>
+<p>多态的实现涉及到两个阶段：<strong>编译阶段</strong>和<strong>运行阶段</strong>。</p>
+<ul>
+<li>
+<p><strong>编译阶段</strong>：</p>
+<ul>
+<li>
+<p>编译器只知道引用的声明类型（即父类类型），因此它会去父类中查找方法签名。如果找到该方法，编译器会认为调用是合法的，并绑定到该方法。</p>
+</li>
+<li>
+<p>这个过程称为<strong>静态绑定</strong>或<strong>早期绑定</strong>。 因为编译阶段会将静态方法和类绑定，所以下面的代码中：</p>
+<p>b对象在编译时，静态方法已经和B绑定</p>
+</li>
+<li>
+<pre><code class="language-java">public class test1 {
+    public static void main(String[] args) {
+        A a = new A();
+        a.test();// 输出 A=&gt;test()
+
+        B b = new A();
+        b.test();// 输出 B=&gt;test()，说明父类中的test()方法没有被重写
+        B c =new B();
+        c.test();
+    }
+}
+
+// 父类
+class B {
+    public  static void test(){
+        System.out.println(&quot;B=&gt;test()&quot;);
+    }
+}
+
+// 子类
+class A extends B {
+    public static void test(){
+        System.out.println(&quot;A=&gt;test()&quot;);
+    }
+}
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>运行阶段</strong>：</p>
+<ul>
+<li>在运行时，JVM会根据实际对象的类型来决定调用哪个方法。即使引用是父类类型，JVM也会调用子类中重写的方法。</li>
+<li>这个过程称为<strong>动态绑定</strong>或<strong>晚期绑定</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code>class Animal {
+    public void move() {
+        System.out.println(&quot;Animal is moving&quot;);
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void move() {
+        System.out.println(&quot;Cat is running&quot;);
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void move() {
+        System.out.println(&quot;Dog is walking&quot;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a1 = new Cat();  // 父类引用指向子类对象
+        Animal a2 = new Dog();  // 父类引用指向另一个子类对象
+
+        a1.move();  // 输出 &quot;Cat is running&quot;（多态）
+        a2.move();  // 输出 &quot;Dog is walking&quot;（多态）
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h5 id="3-多态的特点">3. 多态的特点</h5>
+<ul>
+<li>
+<p><strong>多种形态</strong>：在编译阶段，编译器只知道引用的声明类型；而在运行阶段，JVM会根据实际对象的类型调用相应的方法。因此，同一个父类引用可以在不同的情况下表现出不同的行为，这就是“多态”的含义。</p>
+</li>
+<li>
+<p><strong>实例变量（字段）没有多态性</strong>，而只有 <strong>方法有动态绑定（多态性）</strong>。</p>
+</li>
+<li></li>
+<li>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        Animal cat=new Cat(&quot;cat&quot;,&quot;white&quot;);
+        cat.move();
+        System.out.println(cat.A);//输出的是parent 因为方法有多态，属性没有
+
+
+        //Parent constructor执行 子类型对象执行时如果没有重新定义构造方法，会自动使用父类型的构造方法
+        //Parent constructor
+        System.out.println(p.a);
+
+
+    }
+}
+class Animal {
+    protected String name;
+    String A=&quot;parent&quot;;
+    public Animal(String name,String A) {
+        this.name = name;
+        this.A=A;
+    }
+
+    public void move() {
+        System.out.println(name + &quot; is moving&quot;);
+    }
+}
+
+class Cat extends Animal {
+    String A=&quot;child&quot;;
+    private String color;
+    protected String name;
+    // 调用父类的构造方法
+    public Cat(String name, String color) {
+
+        super(name,&quot;parent------&quot;);
+        this.color = color;
+    }
+
+    // 重写父类的方法
+    @Override
+    public void move() {
+        super.move();  // 调用父类的 move() 方法
+        System.out.println(&quot;The cat is running&quot;);
+    }
+
+    // 访问父类的成员变量
+    public void printInfo() {
+        System.out.println(&quot;Name: &quot; + super.name + &quot;, Color: &quot; + this.color);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p><strong>灵活性</strong>：多态使得代码更加灵活和可扩展。你可以在不修改现有代码的情况下，添加新的子类，并且这些新类可以无缝地融入现有的系统中。</p>
+</li>
+<li>
+<p><strong>动态绑定</strong>：多态的核心是<strong>动态绑定</strong>，即在运行时根据实际对象的类型来决定调用哪个方法，而不是在编译时确定。</p>
+</li>
+</ul>
+<h5 id="总结">总结</h5>
+<ul>
+<li><strong>向上转型</strong>：子类对象可以赋值给父类类型的引用，无需强制类型转换。</li>
+<li><strong>向下转型</strong>：父类类型的引用可以转换为子类类型的引用，但需要强制类型转换，并且必须确保实际对象是子类类型。</li>
+<li><strong>多态</strong>：父类类型的引用可以指向多个不同子类的对象，并且在运行时根据实际对象的类型调用相应的方法。多态的实现依赖于<strong>动态绑定</strong>，使得代码更加灵活和可扩展。</li>
+</ul>
+<h3 id="super关键字">super关键字</h3>
+<figure data-type="image" tabindex="9"><img src="https://images.debian13.ggff.net/2024/12/21/6766862c20ace.png" alt="image-20241218145817906" loading="lazy"></figure>
+<p>super关键字</p>
+<p>①super关键字和this关键字对比来学习。this代表的是当前对象。super代表的是当前对象中的父类型特征。</p>
+<p>②super不能使用在静态上下文中。</p>
+<p>③“super.”大部分情况下是可以省略的。什么时候不能省略？</p>
+<p>①当父类和子类中定义了相同的属性（实例变量）或者相同方法（实例方法）时，如果需要在子类中访问父类的属性或方法时，super.不能省略。</p>
+<p>④this可以单独输出，super不能单独输出。</p>
+<p>⑤super(实参); 通过子类的构造方法调用父类的构造方法，目的是为了完成父类型特征的初始化。</p>
+<p>⑥当一个构造方法第一行没有显示的调用“super(实参);”，也没有显示的调用“this(实参)”，系统会自动调用super()。因此一个类中的无参数构造方法建议显示的定义出来。</p>
+<p>⑦<strong>如果比作盒子，继承对象实际上相当于在父类盒子中塞入了一个小盒子，这个小盒子要完成大盒子中对象的填充</strong></p>
+<p>⑧<strong>在Java语言中只要new对象，Object的无参数构造方法一定会执行。因为所有类都是object的子类，那么首先就要完成object类的构造方法</strong></p>
+<h3 id="super-关键字与-this-关键字对比学习"><code>super</code> 关键字与 <code>this</code> 关键字对比学习</h3>
+<h4 id="1-this-关键字">1. <code>this</code> 关键字</h4>
+<ul>
+<li>
+<p><strong>定义</strong>：<code>this</code> 关键字代表当前对象的引用，即指向正在执行代码的那个对象实例。</p>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>访问当前对象的成员变量和方法。</li>
+<li>区分局部变量和成员变量（当局部变量和成员变量同名时）。</li>
+<li>调用当前类的其他构造方法（通过 <code>this(参数)</code>）。</li>
+<li><code>this</code> 可以作为参数传递给方法或构造器。</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-java">class Student {
+    private String name;
+
+    // 构造方法
+    public Student(String name) {
+        this.name = name;  // 使用 this 区分局部变量和成员变量
+    }
+
+    // 访问当前对象的方法
+    public void introduce() {
+        System.out.println(&quot;My name is &quot; + this.name);
+    }
+
+    // 调用当前类的其他构造方法
+    public Student() {
+        this(&quot;Unknown&quot;);  // 调用带参数的构造方法
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="2-super-关键字">2. <code>super</code> 关键字</h4>
+<ul>
+<li>
+<p><strong>定义</strong>：<code>super</code> 关键字代表当前对象中的父类型特征，即指向当前对象的直接父类对象。</p>
+</li>
+<li>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>访问父类的成员变量和方法。</li>
+<li>调用父类的构造方法（通过 <code>super(参数)</code>），目的是为了完成父类型特征的初始化。</li>
+<li><code>super</code> 不能单独输出，必须用于访问父类的成员或调用父类的构造方法。</li>
+</ul>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-java">class Animal {
+    protected String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public void move() {
+        System.out.println(name + &quot; is moving&quot;);
+    }
+}
+
+class Cat extends Animal {
+    private String color;
+
+    // 调用父类的构造方法
+    public Cat(String name, String color) {
+        super(name);  // 调用父类的构造方法 ，此处必须，因为父类没有无参构造方法，如果父类有无参构造方法，编译器会自动隐式添加 super（）；
+        this.color = color;
+    }
+
+    // 重写父类的方法
+    @Override
+    public void move() {
+        super.move();  // 调用父类的 move() 方法
+        System.out.println(&quot;The cat is running&quot;);
+    }
+
+    // 访问父类的成员变量
+    public void printInfo() {
+        System.out.println(&quot;Name: &quot; + super.name + &quot;, Color: &quot; + this.color);
+    }
+}
+</code></pre>
+</li>
+</ul>
+<figure data-type="image" tabindex="10"><img src="https://images.debian13.ggff.net/2024/12/21/6766864c90a94.png" alt="image-20241218152334535" loading="lazy"></figure>
+<h4 id="3-super-和-this-的区别">3. <code>super</code> 和 <code>this</code> 的区别</h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>this</code></th>
+<th><code>super</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>代表的对象</strong></td>
+<td>当前对象的引用</td>
+<td>当前对象的父类对象的引用</td>
+</tr>
+<tr>
+<td><strong>访问成员</strong></td>
+<td>访问当前类的成员变量和方法</td>
+<td>访问父类的成员变量和方法</td>
+</tr>
+<tr>
+<td><strong>调用构造方法</strong></td>
+<td>调用当前类的其他构造方法（<code>this(参数)</code>）</td>
+<td>调用父类的构造方法（<code>super(参数)</code>）</td>
+</tr>
+<tr>
+<td><strong>是否可以省略</strong></td>
+<td>大部分情况下可以省略</td>
+<td>当父类和子类有同名成员时，<code>super</code> 不能省略</td>
+</tr>
+<tr>
+<td><strong>能否单独使用</strong></td>
+<td>可以单独使用（如 <code>System.out.println(this);</code>）当前对象的tostring方法</td>
+<td>不能单独使用</td>
+</tr>
+<tr>
+<td><strong>使用场景</strong></td>
+<td>区分局部变量和成员变量、调用其他构造方法</td>
+<td>访问父类成员、调用父类构造方法</td>
+</tr>
+<tr>
+<td><strong>是否能用于静态上下文</strong></td>
+<td>不能用于静态上下文</td>
+<td>不能用于静态上下文</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-super-不能省略的情况">4. <code>super</code> 不能省略的情况</h4>
+<ul>
+<li>
+<p><strong>当父类和子类中定义了相同的属性（实例变量）或相同的方法（实例方法）时</strong>，如果需要在子类中访问父类的属性或方法，<code>super.</code> 不能省略。否则，默认访问的是子类中的成员。</p>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-Java">class Parent {
+    protected int value = 10;
+
+    public void showValue() {
+        System.out.println(&quot;Parent value: &quot; + value);
+    }
+}
+
+class Child extends Parent {
+    private int value = 20;
+
+    public void showValue() {
+        System.out.println(&quot;Child value: &quot; + value);  // 访问子类的 value
+        System.out.println(&quot;Parent value: &quot; + super.value);  // 访问父类的 value
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.showValue();
+    }
+}
+</code></pre>
+<p><strong>输出结果</strong>：</p>
+<pre><code class="language-Java">Child value: 20
+Parent value: 10
+</code></pre>
+</li>
+</ul>
+<h4 id="5-super实参-的使用">5. <code>super(实参)</code> 的使用</h4>
+<ul>
+<li>
+<p><strong>调用父类的构造方法</strong>：<code>super(实参)</code> 用于在子类的构造方法中调用父类的构造方法，目的是为了完成父类型特征的初始化。</p>
+</li>
+<li>
+<p><strong>自动调用</strong>：如果一个构造方法的第一行没有显式地调用 <code>super(实参)</code> 或 <code>this(实参)</code>，系统会自动调用无参数的父类构造方法 <code>super()</code>。</p>
+</li>
+<li>
+<p><strong>位置限制</strong>：<code>super(实参)</code> 只能出现在构造方法的第一行。</p>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-Java">class Parent {
+    public Parent() {
+        System.out.println(&quot;Parent constructor called&quot;);
+    }
+
+    public Parent(String name) {
+        System.out.println(&quot;Parent constructor with name: &quot; + name);
+    }
+}
+
+class Child extends Parent {
+    public Child() {
+        super();  // 显式调用父类的无参数构造方法
+        System.out.println(&quot;Child constructor called&quot;);
+    }
+
+    public Child(String name) {
+        super(name);  // 显式调用父类的带参数构造方法
+        System.out.println(&quot;Child constructor with name: &quot; + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c1 = new Child();  // 输出: Parent constructor called, Child constructor called
+        Child c2 = new Child(&quot;Alice&quot;);  // 输出: Parent constructor with name: Alice, Child constructor with name: Alice
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="6-object-类的无参数构造方法">6. <code>Object</code> 类的无参数构造方法</h4>
+<ul>
+<li>
+<p><strong>默认调用</strong>：在Java语言中，每个类都隐式或显式地继承自 <code>Object</code> 类。因此，无论你是否显式地调用了 <code>super()</code>，<code>Object</code> 类的无参数构造方法都会被执行。</p>
+</li>
+<li>
+<p><strong>建议</strong>：为了提高代码的可读性和明确性，建议显式地定义无参数构造方法，尤其是在你有多个构造方法的情况下。</p>
+</li>
+<li>
+<p><strong>示例</strong>：</p>
+<pre><code class="language-java">class MyClass {
+    public MyClass() {
+        super();  // 显式调用 Object 类的无参数构造方法
+        System.out.println(&quot;MyClass constructor called&quot;);
+    }
+
+    public MyClass(String name) {
+        this();  // 调用无参数构造方法
+        System.out.println(&quot;MyClass constructor with name: &quot; + name);
+    }
+}
+//实际上也可以 因为编译器会自动调用
+class MyClass {
+        public MyClass() {
+          
+            System.out.println(&quot;MyClass constructor called&quot;);
+        }
+
+        public MyClass(String name) {
+            
+            System.out.println(&quot;MyClass constructor with name: &quot; + name);
+        }
+    }
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();  // 输出: MyClass constructor called
+        MyClass obj2 = new MyClass(&quot;Bob&quot;);  // 输出: MyClass constructor called, MyClass constructor with name: Bob
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="总结-2">总结</h3>
+<ul>
+<li><strong><code>this</code></strong> 代表当前对象的引用，主要用于访问当前类的成员变量和方法，区分局部变量和成员变量，以及调用当前类的其他构造方法。</li>
+<li><strong><code>super</code></strong> 代表当前对象的父类对象的引用，主要用于访问父类的成员变量和方法，调用父类的构造方法。</li>
+<li><strong><code>super</code> 不能用于静态上下文</strong>，并且在某些情况下（如父类和子类有同名成员时）不能省略。</li>
+<li><strong><code>super(实参)</code></strong> 用于调用父类的构造方法，必须放在构造方法的第一行，并且如果没有显式调用，系统会自动调用 <code>super()</code>。</li>
+<li><strong><code>Object</code> 类的无参数构造方法</strong> 一定会被执行，建议显式地定义无参数构造方法以提高代码的可读性。</li>
+</ul>
+<ol>
+<li><strong>子类是一个扩展的大盒子</strong>：
+<ul>
+<li>子类并不是简单地“塞入”父类的内部，而是<strong>扩展了父类的盒子</strong>。子类继承了父类的所有属性和行为，并且可以在其基础上添加新的属性和行为，或者重写（覆盖）父类中的一些行为。</li>
+<li><strong>子类的盒子包含了父类的盒子的内容</strong>，并且在父类的基础上进行了扩展或修改。因此，子类的盒子比父类的盒子更大、更复杂，因为它不仅包含了父类的所有内容，还增加了自己的内容。</li>
+</ul>
+</li>
+<li><strong>构造过程</strong>：
+<ul>
+<li>当你创建一个子类的对象时，实际上是在构建一个包含父类特征的完整对象。这个过程中，<strong>父类的构造方法会首先被调用</strong>，以确保父类的部分被正确初始化。然后，子类的构造方法继续执行，完成子类特有的初始化。</li>
+<li>这个过程类似于先填充父类的“盒子”，然后再填充子类的“盒子”。<strong>父类的盒子是子类盒子的一部分</strong>，而不是被“塞入”子类盒子中。</li>
+</ul>
+</li>
+<li><strong>多态性</strong>：
+<ul>
+<li>在运行时，Java 的虚拟机会根据实际对象的类型来决定调用哪个方法。这就好比你在外面看到的是一个大盒子（父类引用），但当你打开它时，里面可能有一个更大的盒子（子类对象），并且你会根据这个更大盒子的内容来决定如何操作它。</li>
+<li>通过父类的引用可以访问子类对象的行为，但这并不是因为子类对象是“塞入”父类的，而是因为子类对象<strong>实现了父类的接口</strong>，并且可以通过父类的引用进行访问。这种行为是通过<strong>动态绑定</strong>实现的，即在运行时根据实际对象的类型来决定调用哪个方法。</li>
+</ul>
+</li>
+</ol>
+<h5 id="为什么说塞入一个小盒子不完全准确">为什么说“塞入一个小盒子”不完全准确？</h5>
+<ul>
+<li><strong>继承不是简单的嵌套</strong>：子类并不是简单地“塞入”父类的内部，而是<strong>扩展了父类</strong>。子类继承了父类的所有属性和方法，并且可以在其基础上进行扩展或修改。子类对象包含了父类的所有特征，但它不仅仅是一个“小盒子”放在“大盒子”里，而是<strong>一个更大、更复杂的盒子</strong>，它包含了父类的所有内容并添加了自己的内容。</li>
+<li><strong>构造顺序</strong>：在创建子类对象时，<strong>父类的构造方法会首先被调用</strong>，以确保父类的部分被正确初始化。然后，子类的构造方法才会执行。这个过程更像是<strong>先填充父类的“盒子”，再填充子类的“盒子”</strong>，而不是简单地把一个“小盒子”塞进“大盒子”。</li>
+<li><strong>多态性</strong>：通过父类的引用可以访问子类对象的行为，这并不意味着子类对象是“塞入”父类的，而是因为子类对象<strong>实现了父类的接口</strong>，并且可以通过父类的引用进行访问。这种行为是通过<strong>动态绑定</strong>实现的，即在运行时根据实际对象的类型来决定调用哪个方法。</li>
+</ul>
+<h5 id="总结-3">总结</h5>
+<ul>
+<li><strong>继承关系</strong>更像是一个<strong>扩展的过程</strong>，而不是简单地将一个“小盒子”塞入一个“大盒子”。子类继承了父类的所有属性和行为，并可以在其基础上进行扩展或修改。</li>
+<li><strong>构造过程</strong>是先初始化父类的部分，再初始化子类的部分，确保整个对象的状态是完整的。</li>
+<li><strong>多态性</strong>允许通过父类的引用访问子类对象的行为，但这并不是通过“塞入”实现的，而是通过<strong>动态绑定</strong>来实现的。</li>
+</ul>
+<h5 id="修正后的比喻">修正后的比喻</h5>
+<p>为了更准确地描述继承机制，可以说：</p>
+<ul>
+<li><strong>继承对象实际上相当于将父类的盒子扩展为一个更大的盒子</strong>，这个更大的盒子包含了父类的所有内容，并且在此基础上增加了子类特有的内容。子类的盒子不仅仅是“塞入”父类的盒子，而是<strong>扩展了父类的盒子</strong>，使得它可以容纳更多的功能和数据。</li>
+<li><strong>构造过程</strong>类似于先填充父类的“盒子”，再填充子类的“盒子”，确保整个对象的状态是完整的。</li>
+<li><strong>多态性</strong>允许通过父类的引用访问子类对象的行为，但这并不是通过“塞入”实现的，而是通过<strong>动态绑定</strong>来实现的</li>
+</ul>
+<h3 id="final关键字与常量">final关键字与常量</h3>
+<p>①final修饰的类不能被继承</p>
+<p>②final修饰的方法不能被覆盖</p>
+<p>③final修饰的变量，一旦赋值不能重新赋值</p>
+<p>④final修饰的实例变量必须在对象初始化时手动赋值</p>
+<p>⑤final修饰的实例变量一般和static联合使用：称为常量</p>
+<p>⑥final修饰的引用，一旦指向某个对象后，不能再指向其它对象。但指向的对象内部的数据是可以修改的。</p>
+<h4 id="常量">常量</h4>
+<pre><code>* 1. 怎么定义常量：public static final 数据类型 常量名 = 常量值;
+* 2. 常量名的命名规范：全部单词大写，每个单词采用“_”衔接。
+</code></pre>
+<h3 id="抽象类">抽象类</h3>
+<p>在面向对象编程中，<strong>抽象类</strong> 是一种特殊的类，它不能被直接实例化，而是用于定义一个通用的接口或模板，供其子类继承和实现。</p>
+<h4 id="1-什么时候考虑将类定义为抽象类">1. <strong>什么时候考虑将类定义为抽象类？</strong></h4>
+<p>在面向对象编程中，<strong>抽象类</strong> 是一种特殊的类，它不能被直接实例化，而是用于定义一个通用的接口或模板，供其子类继承和实现。通常，当你遇到以下情况时，可以考虑将类定义为抽象类：</p>
+<ul>
+<li><strong>某些方法无法实现或没有意义</strong>：如果一个类中有一些方法在该类中无法实现，或者实现这些方法没有实际意义，那么可以将这些方法定义为<strong>抽象方法</strong>。抽象方法没有具体的实现，而是要求子类必须提供具体的实现。例如，<code>Person</code> 类中的 <code>greet()</code> 方法，不同国家的人有不同的问候方式，因此 <code>greet()</code> 的具体实现应该由子类来完成。</li>
+<li><strong>提供公共代码和模板</strong>：抽象类可以包含已经实现的方法（非抽象方法），这些方法可以为所有子类提供共享的行为。同时，抽象类还可以定义一些抽象方法，要求子类根据具体需求进行实现。这样，抽象类既提供了通用的功能，又允许子类根据具体情况定制特定的行为。</li>
+<li><strong>强制子类实现某些方法</strong>：通过定义抽象方法，你可以确保所有继承该抽象类的子类都必须实现这些方法，从而保证了子类的一致性和完整性。</li>
+</ul>
+<h4 id="2-抽象类的定义">2. <strong>抽象类的定义</strong></h4>
+<p>抽象类使用 <code>abstract</code> 关键字来定义。语法如下：</p>
+<pre><code>abstract class 类名 {
+    // 类的内容
+}
+</code></pre>
+<ul>
+<li>
+<p>抽象类的特点</p>
+<p>：</p>
+<ul>
+<li><strong>不能实例化</strong>：你不能直接创建抽象类的对象。例如，如果你有一个抽象类 <code>Animal</code>，你不能写 <code>new Animal()</code>。</li>
+<li><strong>可以有构造方法</strong>：尽管抽象类不能被实例化，但它仍然可以有构造方法。这些构造方法主要用于初始化子类对象时调用，帮助子类完成必要的初始化工作。</li>
+<li><strong>可以有普通方法</strong>：抽象类不仅可以包含抽象方法，还可以包含已经实现的普通方法。这些普通方法可以在子类中直接使用，或者被子类重写。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-抽象方法的定义">3. <strong>抽象方法的定义</strong></h4>
+<p>抽象方法是只有声明而没有具体实现的方法。<strong>它们必须在抽象类中定义</strong>，并且要求子类必须实现这些方法。抽象方法的语法如下：</p>
+<pre><code>abstract 返回值类型 方法名(参数列表);
+</code></pre>
+<ul>
+<li>
+<p>抽象方法的特点</p>
+<p>：</p>
+<ul>
+<li><strong>没有方法体</strong>：抽象方法只有方法签名，没有方法体（即没有 <code>{}</code> 和具体实现）。</li>
+<li><strong>必须在抽象类中定义</strong>：抽象方法只能在抽象类中定义，普通类中不能定义抽象方法。</li>
+<li><strong>子类必须实现</strong>：如果一个类继承了抽象类并且不是抽象类，那么它必须实现所有抽象方法。否则，该类也必须被声明为抽象类。</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-抽象类与普通类的区别">4. <strong>抽象类与普通类的区别</strong></h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>抽象类</th>
+<th>普通类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否可以实例化</td>
+<td>不可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>是否可以有构造方法</td>
+<td>可以，但只能用于子类初始化</td>
+<td>可以，用于创建对象</td>
+</tr>
+<tr>
+<td>是否可以有抽象方法</td>
+<td>可以</td>
+<td>不可以</td>
+</tr>
+<tr>
+<td>是否可以有普通方法</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>子类是否必须实现抽象方法</td>
+<td>如果子类不是抽象类，必须实现所有抽象方法</td>
+<td>无此要求</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-抽象类的使用场景示例">5. <strong>抽象类的使用场景示例</strong></h4>
+<h5 id="示例-1person-类中的-greet-方法">示例 1：<code>Person</code> 类中的 <code>greet()</code> 方法</h5>
+<p>假设我们有一个 <code>Person</code> 类，不同国家的人有不同的问候方式。我们可以将 <code>Person</code> 定义为抽象类，并将 <code>greet()</code> 定义为抽象方法，让子类根据具体情况进行实现。</p>
+<pre><code>abstract class Person {
+    // 公共属性
+    protected String name;
+
+    // 构造方法
+    public Person(String name) {
+        this.name = name;
+    }
+
+    // 抽象方法：不同国家的人有不同的问候方式
+    abstract void greet();
+
+    // 已实现的方法：所有人都可以打招呼
+    void sayHello() {
+        System.out.println(&quot;Hello, my name is &quot; + name);
+    }
+}
+
+// 子类 ChinesePerson 实现 greet() 方法
+class ChinesePerson extends Person {
+    public ChinesePerson(String name) {
+        super(name);
+    }
+
+    @Override
+    void greet() {
+        System.out.println(&quot;你好，我叫 &quot; + name);
+    }
+}
+
+// 子类 AmericanPerson 实现 greet() 方法
+class AmericanPerson extends Person {
+    public AmericanPerson(String name) {
+        super(name);
+    }
+
+    @Override
+    void greet() {
+        System.out.println(&quot;Hi, I'm &quot; + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person chinese = new ChinesePerson(&quot;李华&quot;);
+        chinese.greet();  // 输出：你好，我叫李华
+        chinese.sayHello();  // 输出：Hello, my name is 李华
+
+        Person american = new AmericanPerson(&quot;John&quot;);
+        american.greet();  // 输出：Hi, I'm John
+        american.sayHello();  // 输出：Hello, my name is John
+    }
+}
+</code></pre>
+<h5 id="示例-2pet-类中的-eat-方法">示例 2：<code>Pet</code> 类中的 <code>eat()</code> 方法</h5>
+<p>假设我们有一个 <code>Pet</code> 类，表示宠物。不同的宠物有不同的进食方式，因此 <code>eat()</code> 方法的具体实现应该由子类来完成。我们可以将 <code>Pet</code> 定义为抽象类，并将 <code>eat()</code> 定义为抽象方法。</p>
+<pre><code>abstract class Pet {
+    // 公共属性
+    protected String name;
+
+    // 构造方法
+    public Pet(String name) {
+        this.name = name;
+    }
+
+    // 抽象方法：不同宠物有不同的进食方式
+    abstract void eat();
+
+    // 已实现的方法：所有宠物都可以玩耍
+    void play() {
+        System.out.println(name + &quot; is playing&quot;);
+    }
+}
+
+// 子类 Dog 实现 eat() 方法
+class Dog extends Pet {
+    public Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    void eat() {
+        System.out.println(name + &quot; is eating dog food&quot;);
+    }
+}
+
+// 子类 Cat 实现 eat() 方法
+class Cat extends Pet {
+    public Cat(String name) {
+        super(name);
+    }
+
+    @Override
+    void eat() {
+        System.out.println(name + &quot; is eating cat food&quot;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pet dog = new Dog(&quot;Buddy&quot;);
+        dog.eat();  // 输出：Buddy is eating dog food
+        dog.play();  // 输出：Buddy is playing
+
+        Pet cat = new Cat(&quot;Whiskers&quot;);
+        cat.eat();  // 输出：Whiskers is eating cat food
+        cat.play();  // 输出：Whiskers is playing
+    }
+}
+</code></pre>
+<h4 id="6-抽象类的注意事项">6. <strong>抽象类的注意事项</strong></h4>
+<ul>
+<li><strong>抽象类不能被实例化</strong>：不能直接创建抽象类的对象。例如，<code>new Pet()</code> 会报编译错误。</li>
+<li><strong>抽象类可以有构造方法</strong>：虽然抽象类不能被实例化，但它仍然可以有构造方法。这些构造方法用于初始化子类对象时调用，帮助子类完成必要的初始化工作。</li>
+<li><strong>抽象类可以有普通方法</strong>：抽象类不仅可以包含抽象方法，还可以包含已经实现的普通方法。这些普通方法可以在子类中直接使用，或者被子类重写。</li>
+<li><strong>抽象类中不一定有抽象方法</strong>：虽然抽象类通常包含抽象方法，但并不是必须的。一个类只要被声明为 <code>abstract</code>，即使它没有任何抽象方法，也不能被实例化。</li>
+<li><strong>非抽象类继承抽象类时必须实现所有抽象方法</strong>：如果一个非抽象类继承了抽象类，那么它必须实现所有抽象方法。否则，该类也必须被声明为抽象类。</li>
+<li><strong><code>abstract</code> 关键字不能与 <code>private</code>、<code>final</code>、<code>static</code> 共存</strong>：
+<ul>
+<li><strong><code>private</code></strong>：抽象方法必须被子类实现，而 <code>private</code> 方法无法被子类访问，因此二者不能共存。</li>
+<li><strong><code>final</code></strong>：<code>final</code> 方法不能被子类重写，而抽象方法必须被子类重写，因此二者不能共存。</li>
+<li><strong><code>static</code></strong>：静态方法属于类本身，而不是类的实例，因此不能与抽象方法共存，因为抽象方法需要在子类实例中实现。</li>
+</ul>
+</li>
+</ul>
+<h3 id="接口">接口</h3>
+<h4 id="1-什么是接口">1. <strong>什么是接口？</strong></h4>
+<p>在 Java 中，<strong>接口</strong>（<code>interface</code>）是一种完全抽象的引用类型，它定义了一组行为规范或契约。接口用于描述实现该接口的类应该具有哪些方法和常量，但不提供具体的实现。接口的主要作用是定义一组公共的行为，确保所有实现者都遵循相同的行为规则。</p>
+<h4 id="2-接口的作用">2. <strong>接口的作用</strong></h4>
+<ul>
+<li>
+<p><strong>定义行为规范</strong>：接口定义了一组抽象方法，这些方法描述了实现该接口的类必须提供的功能。通过接口，你可以确保所有实现者都遵循相同的契约。</p>
+</li>
+<li>
+<p><strong>解耦合</strong>：接口允许调用者和实现者之间保持松散的耦合关系。调用者只需要依赖接口，而不关心具体的实现者是谁。这种设计模式称为<strong>面向接口编程</strong>，它有助于提高代码的可维护性和扩展性。</p>
+</li>
+<li>
+<p><strong>多继承支持</strong>：一个类可以实现多个接口，从而组合不同的行为。这弥补了 Java 单继承的限制，使得类可以从多个来源继承行为。</p>
+</li>
+</ul>
+<h4 id="3-接口的定义">3. <strong>接口的定义</strong></h4>
+<p>接口使用 <code>interface</code> 关键字来定义。语法如下：</p>
+<pre><code class="language-java">[修饰符列表] interface 接口名 {
+    // 常量
+    // 抽象方法
+    // 默认方法（Java 8+）
+    // 静态方法（Java 8+）
+    // 私有方法（Java 9+）
+}
+</code></pre>
+<ul>
+<li>
+<p><strong>常量</strong>：接口中可以定义常量，默认为 <code>public static final</code>，因此你可以省略这些修饰符。因此，必须赋值</p>
+</li>
+<li>
+<p><strong>抽象方法</strong>：接口中的方法默认是抽象的，即没有具体实现。你也可以显式地使用 <code>abstract</code> 关键字，但这不是必需的。</p>
+</li>
+<li>
+<p><strong>默认方法</strong>（Java 8+）：接口可以包含默认方法，使用 <code>default</code> 关键字定义。默认方法提供了可选的实现，允许实现类选择是否重写这些方法。</p>
+</li>
+<li>
+<p>在 Java 8 之前，接口只能定义抽象方法，所有实现接口的类都必须提供这些抽象方法的具体实现。这带来了一个问题：如果你需要向接口添加新方法，那么所有实现该接口的类都需要修改以实现这个新方法。这种现象被称为<strong>接口演变问题</strong>。</p>
+<p>为了解决这个问题，Java 8 引入了<strong>默认方法</strong>（<code>default</code> 方法）。默认方法允许你在接口中为某个方法提供一个可选的实现。这样一来，即使你向接口添加了新方法，现有的实现类也不需要强制实现这些新方法，因为它们可以使用接口提供的默认实现。</p>
+<p>简单来说，<strong>默认方法</strong> 就是接口中已经实现了的方法，子类可以选择是否重写它。如果子类不重写，默认方法的实现仍然有效。</p>
+<p>想象一下，你有一个 <code>Usb</code> 接口，定义了 <code>read()</code> 和 <code>write()</code> 方法。现在你想为所有 USB 设备添加一个新的功能：打印设备信息（<code>printInfo()</code>）。如果你直接在接口中添加这个方法，那么所有实现 <code>Usb</code> 接口的类（如 <code>Printer</code>、<code>HardDrive</code> 等）都需要修改以实现 <code>printInfo()</code> 方法。这显然不太方便，尤其是当你有很多实现类时。</p>
+<p>通过引入默认方法，你可以直接在接口中为 <code>printInfo()</code> 提供一个默认实现。这样，所有现有的实现类都可以继续正常工作，而不需要修改。只有那些想要自定义 <code>printInfo()</code> 实现的类才需要重写这个方法。</p>
+</li>
+<li>
+<p><strong>静态方法</strong>（Java 8+）：接口可以包含静态方法，使用 <code>static</code> 关键字定义。静态方法属于接口本身，而不是实现类，因此它们只能通过接口名调用。</p>
+</li>
+<li>
+<p><strong>私有方法</strong>（Java 9+）：接口可以定义私有方法，使用 <code>private</code> 关键字定义。私有方法通常用于辅助默认方法或静态方法的实现，避免代码重复。</p>
+</li>
+</ul>
+<h4 id="4-接口的实现">4. <strong>接口的实现</strong></h4>
+<p>类可以通过 <code>implements</code> 关键字实现接口。实现接口的类必须提供接口中所有抽象方法的具体实现。如果类没有实现所有抽象方法，则该类也必须被声明为抽象类。</p>
+<pre><code class="language-java">class 类名 implements 接口名, 接口名2, ... {
+    // 实现接口中的抽象方法
+}
+</code></pre>
+<h4 id="5-接口的特性">5. <strong>接口的特性</strong></h4>
+<ul>
+<li>
+<p><strong>不能实例化</strong>：接口不能被直接实例化，因为它是完全抽象的。你可以创建接口的引用变量，但不能创建接口的对象。</p>
+</li>
+<li>
+<p><strong>隐式继承 <code>Object</code></strong>：所有接口都隐式继承自 <code>Object</code> 类，因此接口可以调用 <code>Object</code> 类的相关方法，如 <code>toString()</code>、<code>equals()</code> 等。</p>
+</li>
+<li>
+<p><strong>多继承支持</strong>：一个类可以实现多个接口，从而组合不同的行为。这是 Java 中实现多继承的一种方式。</p>
+</li>
+<li>
+<p><strong>常量和方法的访问修饰符</strong>：接口中的所有常量默认为 <code>public static final</code>，所有方法默认为 <code>public</code>。因此，你可以省略这些修饰符。</p>
+</li>
+</ul>
+<h4 id="6-接口的示例">6. <strong>接口的示例</strong></h4>
+<h5 id="示例-1定义一个-usb-接口">示例 1：定义一个 <code>Usb</code> 接口</h5>
+<p>假设我们有一个 <code>Usb</code> 接口，定义了 <code>read()</code> 和 <code>write()</code> 方法。任何实现 <code>Usb</code> 接口的设备都必须提供这两个方法的具体实现。</p>
+<pre><code class="language-java">// 定义 Usb 接口
+interface Usb {
+    void read();
+    void write();
+
+    // 默认方法：提供一个可选的实现
+    default void printInfo() {
+        System.out.println(&quot;This is a USB device.&quot;);
+    }
+
+    // 静态方法：提供一个工具类方法
+    static void checkConnection() {
+        System.out.println(&quot;Checking USB connection...&quot;);
+    }
+}
+</code></pre>
+<h5 id="示例-2实现-usb-接口的-printer-和-harddrive-类">示例 2：实现 <code>Usb</code> 接口的 <code>Printer</code> 和 <code>HardDrive</code> 类</h5>
+<pre><code class="language-java">// 实现 Usb 接口的打印机类
+class Printer implements Usb {
+    @Override
+    public void read() {
+        System.out.println(&quot;Printer is reading data...&quot;);
+    }
+
+    @Override
+    public void write() {
+        System.out.println(&quot;Printer is printing data...&quot;);
+    }
+}
+
+// 实现 Usb 接口的硬盘类
+class HardDrive implements Usb {
+    @Override
+    public void read() {
+        System.out.println(&quot;HardDrive is reading data...&quot;);
+    }
+
+    @Override
+    public void write() {
+        System.out.println(&quot;HardDrive is writing data...&quot;);
+    }
+}
+</code></pre>
+<h5 id="示例-3computer-类作为调用者">示例 3：<code>Computer</code> 类作为调用者</h5>
+<pre><code class="language-java">// Computer 类作为调用者，面向 Usb 接口进行编程
+class Computer {
+    public void conn(Usb usb) {
+        usb.read();
+        usb.write();
+        usb.printInfo();  // 调用默认方法
+        Usb.checkConnection();  // 调用静态方法
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Computer computer = new Computer();
+
+        // 连接打印机
+        Usb printer = new Printer();
+        computer.conn(printer);
+
+        // 连接硬盘
+        Usb hardDrive = new HardDrive();
+        computer.conn(hardDrive);
+    }
+}
+</code></pre>
+<p>在这个例子中，<code>Computer</code> 类只需要依赖 <code>Usb</code> 接口，而不关心具体的设备类型。这样，我们可以轻松地添加新的设备（如 <code>Mouse</code> 或 <code>Keyboard</code>），而不需要修改 <code>Computer</code> 类的代码。这就是<strong>面向接口编程</strong>的优势：调用者和实现者之间的解耦合。</p>
+<hr>
+<h3 id="抽象类与接口的对比">抽象类与接口的对比</h3>
+<h4 id="1-抽象类-vs-接口基础概念">1. <strong>抽象类 vs 接口：基础概念</strong></h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>定义</strong></td>
+<td>抽象类是一种特殊的类，不能被实例化，但可以包含已实现的方法和抽象方法。</td>
+<td>接口是一种完全抽象的引用类型，只定义抽象方法和常量，无法实例化。</td>
+</tr>
+<tr>
+<td><strong>关键字</strong></td>
+<td><code>abstract class</code></td>
+<td><code>interface</code></td>
+</tr>
+<tr>
+<td><strong>构造方法</strong></td>
+<td>可以有构造方法，但只能用于子类初始化。</td>
+<td>没有构造方法，无法实例化。</td>
+</tr>
+<tr>
+<td><strong>继承方式</strong></td>
+<td>一个类只能继承一个抽象类（单继承）。</td>
+<td>一个类可以实现多个接口（多继承）。</td>
+</tr>
+<tr>
+<td><strong>实现方式</strong></td>
+<td>使用 <code>extends</code> 关键字继承抽象类。</td>
+<td>使用 <code>implements</code> 关键字实现接口。</td>
+</tr>
+<tr>
+<td><strong>抽象方法</strong></td>
+<td>可以有抽象方法，也可以有已实现的方法。</td>
+<td>只能定义抽象方法（Java 8 之前），Java 8 之后可以有默认方法和静态方法，也可以有普通方法。Java9后加入私有方法，Java16引入密闭接口</td>
+</tr>
+<tr>
+<td><strong>常量</strong></td>
+<td>可以有普通变量和常量。</td>
+<td>只能定义常量，默认为 <code>public static final</code>。</td>
+</tr>
+<tr>
+<td><strong>访问修饰符</strong></td>
+<td>方法和变量可以有不同的访问修饰符。</td>
+<td>所有的方法和变量默认为 <code>public</code>。</td>
+</tr>
+<tr>
+<td><strong>继承 Object</strong></td>
+<td>继承自 <code>Object</code> 类。</td>
+<td>隐式继承 <code>Object</code> 类。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-抽象类的特点">2. <strong>抽象类的特点</strong></h4>
+<ul>
+<li>
+<p><strong>部分实现</strong>：抽象类可以包含已实现的方法，这些方法可以直接在子类中使用，或者被子类重写。这使得抽象类适合用于定义一些通用的行为，同时允许子类根据具体需求进行扩展。</p>
+</li>
+<li>
+<p><strong>单继承限制</strong>：一个类只能继承一个抽象类，这意味着如果你需要从多个类中继承行为，必须使用接口或其他设计模式（如组合）。</p>
+</li>
+<li>
+<p><strong>构造方法</strong>：抽象类可以有构造方法，尽管它不能被直接实例化，但这些构造方法可以在子类构造时调用，帮助子类完成必要的初始化工作。</p>
+</li>
+<li>
+<p><strong>灵活性较低</strong>：由于抽象类只能单继承，因此它的灵活性相对较低，尤其是在复杂的继承关系中，可能会导致代码难以维护。</p>
+</li>
+</ul>
+<h4 id="3-接口的特点">3. <strong>接口的特点</strong></h4>
+<ul>
+<li>
+<p><strong>完全抽象</strong>：接口是完全抽象的，它只定义了一组方法和常量，没有任何具体的实现。所有实现接口的类都必须提供这些方法的具体实现。这使得接口非常适合用于定义契约或规范，确保所有实现者都遵循相同的行为规则。</p>
+</li>
+<li>
+<p><strong>多继承支持</strong>：一个类可以实现多个接口，这使得接口具有更高的灵活性。你可以通过实现多个接口来组合不同的行为，而不需要依赖于类的继承层次结构。</p>
+</li>
+<li>
+<p><strong>默认方法和静态方法</strong>：从 Java 8 开始，接口可以包含默认方法（<code>default</code>）和静态方法（<code>static</code>）。默认方法允许接口提供一些可选的实现，而静态方法则可以为接口提供工具类方法。这解决了接口演变问题，即当接口添加新方法时，现有的实现类不需要强制实现这些新方法。</p>
+</li>
+<li>
+<p><strong>私有方法</strong>：从 Java 9 开始，接口可以定义私有方法（<code>private</code>），这些方法可以用于辅助默认方法或静态方法的实现，避免代码重复。</p>
+</li>
+<li>
+<p><strong>解耦合</strong>：接口的最大优势在于它能够实现<strong>解耦合</strong>。调用者（如 <code>Computer</code> 类）只需要依赖接口，而不关心具体的实现者（如 <code>Printer</code> 或 <code>HardDrive</code>）。这种设计使得系统的各个模块可以独立开发和测试，降低了系统的耦合度，提高了扩展性和维护性。</p>
+</li>
+</ul>
+<h4 id="4-抽象类与接口的选择原则">4. <strong>抽象类与接口的选择原则</strong></h4>
+<p>在实际开发中，选择使用抽象类还是接口取决于具体的需求和设计目标。以下是一些常见的选择原则：</p>
+<ul>
+<li>
+<p><strong>如果需要定义一组共同的行为，并且这些行为中有部分是可以共享的实现</strong>，那么应该使用<strong>抽象类</strong>。抽象类可以包含已实现的方法，帮助子类减少重复代码。</p>
+</li>
+<li>
+<p><strong>如果需要定义一组行为规范，但不希望提供任何具体的实现</strong>，并且希望允许多个类实现这些行为，那么应该使用<strong>接口</strong>。接口更适合用于定义契约或规范，确保所有实现者都遵循相同的行为规则。</p>
+</li>
+<li>
+<p><strong>如果需要允许多个类组合不同的行为</strong>，那么应该使用<strong>接口</strong>。接口支持多继承，允许一个类实现多个接口，从而组合不同的行为。</p>
+</li>
+<li>
+<p><strong>如果需要解决接口演变问题</strong>，即当接口添加新方法时，不想强制所有实现类都实现这些新方法，那么应该使用<strong>接口</strong>中的默认方法（Java 8 之后引入）。默认方法允许接口提供可选的实现，减少了对现有代码的破坏。</p>
+</li>
+</ul>
+<h4 id="5-抽象类与接口的结合使用">5. <strong>抽象类与接口的结合使用</strong></h4>
+<p>在某些情况下，<strong>抽象类和接口可以结合使用</strong>，以充分利用两者的优势。例如：</p>
+<ul>
+<li>
+<p><strong>抽象类作为基类，接口作为行为规范</strong>：你可以定义一个抽象类来提供一些通用的实现，同时让该抽象类实现一个或多个接口，以确保所有子类都遵循特定的行为规范。这样，你既可以享受抽象类提供的共享实现，又可以通过接口实现解耦合。</p>
+</li>
+<li>
+<p><strong>接口作为顶层规范，抽象类作为中间层</strong>：你可以定义一个接口来描述系统中所有组件的行为规范，然后创建一个抽象类来实现该接口，并提供一些通用的实现。子类可以继承这个抽象类，并根据具体需求进一步扩展。这种方式可以有效地组织代码结构，降低复杂度。</p>
+</li>
+</ul>
+<h4 id="6-接口的演变问题及解决方案">6. <strong>接口的演变问题及解决方案</strong></h4>
+<p>在早期版本的 Java 中，接口只能定义抽象方法，所有实现接口的类都必须实现这些方法。这导致了一个问题：当你向接口添加新方法时，所有实现该接口的类都需要修改以实现新方法。这种现象被称为<strong>接口演变问题</strong>。</p>
+<p>为了应对这一问题，Java 8 引入了<strong>默认方法</strong>（<code>default</code>）和<strong>静态方法</strong>（<code>static</code>）。默认方法允许接口提供可选的实现，而静态方法则可以为接口提供工具类方法。这样一来，即使接口添加了新方法，现有的实现类也不需要强制实现这些新方法，从而减少了对现有代码的破坏。</p>
+<p>例如：</p>
+<pre><code class="language-java">interface Usb {
+    void read();
+    void write();
+
+    // 默认方法：提供一个可选的实现
+    default void printInfo() {
+        System.out.println(&quot;This is a USB device.&quot;);
+    }
+
+    // 静态方法：提供一个工具类方法
+    static void checkConnection() {
+        System.out.println(&quot;Checking USB connection...&quot;);
+    }
+}
+</code></pre>
+<h4 id="7密封接口">7.密封接口</h4>
+<h4 id="1-什么是密封接口">1. <strong>什么是密封接口？</strong></h4>
+<p>密封接口是一种特殊的接口，它可以通过 <code>sealed</code> 关键字来限制哪些类或接口可以实现它。密封接口的主要目的是<strong>控制继承关系</strong>，确保只有指定的类或接口能够扩展或实现该接口。这与密封类（Sealed Classes）类似，但应用于接口。</p>
+<p>密封接口通常用于以下场景：</p>
+<ul>
+<li><strong>防止滥用</strong>：确保只有特定的类或接口能够实现某个接口，避免其他类随意扩展。</li>
+<li><strong>增强安全性</strong>：通过限制实现者的范围，减少潜在的安全风险。</li>
+<li><strong>提高代码的可维护性</strong>：通过明确的继承关系，使代码更加清晰和易于维护。</li>
+</ul>
+<h4 id="2-如何定义密封接口">2. <strong>如何定义密封接口？</strong></h4>
+<p>要定义一个密封接口，你需要在接口声明中使用 <code>sealed</code> 关键字，并使用 <code>permits</code> 子句来指定哪些类或接口可以实现该接口。<code>permits</code> 后面列出的类或接口是唯一可以实现该密封接口的类或接口。</p>
+<p>语法如下：</p>
+<pre><code>public sealed interface InterfaceName permits ClassName1, ClassName2, ... {
+    // 接口内容
+}
+</code></pre>
+<h4 id="3-密封接口的实现类或接口">3. <strong>密封接口的实现类或接口</strong></h4>
+<p>密封接口的实现类或接口必须满足以下条件之一：</p>
+<ul>
+<li><strong><code>final</code> 类</strong>：实现密封接口的类可以是 <code>final</code> 类，表示该类不能再被继承。</li>
+<li><strong><code>sealed</code> 类</strong>：实现密封接口的类也可以是密封类，进一步限制其子类。</li>
+<li><strong><code>non-sealed</code> 类</strong>：实现密封接口的类可以是 <code>non-sealed</code> 类，表示该类可以被其他类继承。</li>
+</ul>
+<h4 id="8-总结">8. <strong>总结</strong></h4>
+<ul>
+<li><strong>抽象类</strong> 和 <strong>接口</strong> 都是用于定义抽象行为和规范的工具，但它们在使用场景、语法和功能上有显著差异。</li>
+<li><strong>抽象类</strong> 适合用于定义部分实现的基类，允许子类继承并扩展其行为；而 <strong>接口</strong> 则更适合用于定义完全抽象的行为规范，允许多个类实现这些规范。</li>
+<li><strong>接口</strong> 的最大优势在于它能够实现<strong>解耦合</strong>，使得调用者和实现者之间保持松散的耦合关系，降低了系统的耦合度，提高了扩展性和维护性。</li>
+<li><strong>面向接口编程</strong> 是一种重要的设计模式，它通过接口将调用者和实现者分离，使得系统更加灵活和易于扩展。</li>
+</ul>
+<h3 id="访问权限">访问权限</h3>
+<figure data-type="image" tabindex="11"><img src="https://images.debian13.ggff.net/2024/12/21/67668657f0eac.png" alt="image-20241218201417477" loading="lazy"></figure>
+<p>①访问权限控制符不能修饰局部变量。</p>
+<p>①类中的属性和方法访问权限共有四种：private、缺省、protected和public。</p>
+<p>②类的访问权限只有两种：public和 缺省。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.randomname.me/post/scaleway-ipv6-only-023-ou-mei-yue-de-kai-ji-he-dd-xi-tong/" class="post-title gt-a-link">
+                    Scaleway Ipv6 only 0.23欧每月的开机和DD系统
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">朝闻道 ，夕眠可矣</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/dev-leonsun" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://t.me/leon_ellis" target="_blank">
+                    <i class="fab fa-twitter gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        
+    </div>
+    <div>
+         <a href="https://blog.randomname.me/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
